@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform } from 'react-native';
 import styles from "../../assets/styles/login.styles";
 import { Link } from "expo-router";
 import React, { useState } from 'react';
@@ -14,7 +14,10 @@ export default function Login() {
 
   const handleLogin = () => {}
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={{flex:1}}
+    behavior={Platform.OS === "ios"? "padding" : "height"}
+    >
+      <View style={styles.container}>
       {/* ILLUSTRATION */}
       <View style={styles.topIllustration}>
         <Image source={require("../../assets/images/i.png")}
@@ -58,7 +61,7 @@ export default function Login() {
               <TextInput 
                 style={styles.input}
                 placeholder='Enter Your Password'
-                placeholderTextColor={Colors.placeholderTextColor}
+                placeholderTextColor={COLORS.placeholderTextColor}
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry={!showPassword}
@@ -87,5 +90,6 @@ export default function Login() {
         </View>
       </View>
     </View>
+    </KeyboardAvoidingView>
   )
 }

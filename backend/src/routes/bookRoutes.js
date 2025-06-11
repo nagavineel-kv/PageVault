@@ -19,7 +19,7 @@ router.post("/", protectRoute, async (req, res) =>{
             caption,
             rating,
             image: imageUrl,
-            user: req.user._id,
+            user: req.user._id, //added
         })
         await newBook.save();
         res.status(201).json(newBook);
@@ -35,7 +35,7 @@ router.get("/", protectRoute, async (req, res) => {
         const limit = req.query.limit || 5;
         const skip = (page - 1) * limit;
         const books = await Book.find().sort({createdAt: -1}).skip(skip).limit(limit).populate("user", "username profileImage");
-        const totalBooks = await Book.countDocuments;
+        const totalBooks = await Book.countDocuments(); //added
         res.send({
             books,
             currentPage: page,

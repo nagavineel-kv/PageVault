@@ -6,7 +6,7 @@ import protectRoute from "../middleware/auth.middleware.js";
 const router = express.Router();
 router.post("/", protectRoute, async (req, res) =>{
     try {
-        const { title, caption, rating, image} = req.body;
+        const { title, rating, image,caption} = req.body;
         if(!title || !caption || !rating || !image){
             return res.status(400).json({message:"Please provide all fields!"});
         }
@@ -16,9 +16,9 @@ router.post("/", protectRoute, async (req, res) =>{
         //Save to database 
         const newBook = new Book({
             title,
-            caption,
             rating,
             image: imageUrl,
+            caption
         })
         await newBook.save();
         res.status(201).json(newBook);
@@ -34,7 +34,7 @@ router.get("/", protectRoute, async (req, res) => {
         const limit = req.query.limit || 5;
         const skip = (page - 1) * limit;
         const books = await Book.find().sort({createdAt: -1}).skip(skip).limit(limit).populate("user", "username profileImage");
-        const totalBooks = await Book.countDocuments;
+        const totalBooks = await Book.countDocuments();
         res.send({
             books,
             currentPage: page,

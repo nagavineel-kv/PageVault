@@ -9,7 +9,7 @@ const protectRoute = async(req, res, next) => {
         //Verify token
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         //Find User
-        const user = await User.findById(decoded.userID).select("-password");
+        const user = await User.findById(decoded.userId).select("-password");
         if(!user) return res.status(401).json({message:"Token is not valid"});
         req.user = user;
         next();

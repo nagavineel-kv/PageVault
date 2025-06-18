@@ -32,5 +32,4 @@ Whether you're reading at home or on the go, PAGEVault offers a platform to conn
 
 ---
 
-![alt text](<WhatsApp Image 2025-06-18 at 17.40.21 (7).jpeg>) ![alt text](<WhatsApp Image 2025-06-18 at 17.40.21 (6).jpeg>) ![alt text](<WhatsApp Image 2025-06-18 at 17.40.21 (5).jpeg>) ![alt text](<WhatsApp Image 2025-06-18 at 17.40.21 (4).jpeg>) ![alt text](<WhatsApp Image 2025-06-18 at 17.40.21 (3).jpeg>) ![alt text](<WhatsApp Image 2025-06-18 at 17.40.21 (2).jpeg>) ![alt text](<WhatsApp Image 2025-06-18 at 17.40.21 (1).jpeg>) ![alt text](<WhatsApp Image 2025-06-18 at 17.40.21.jpeg>)
-
+![alt text](image.png)

@@ -32,4 +32,4 @@ Whether you're reading at home or on the go, PAGEVault offers a platform to conn
 
 ---
 
-![alt text](image-2.png)
+![alt text](images/i1.jpeg) ![alt text](images/i2.jpeg) ![alt text](images/i3.jpeg) ![alt text](images/i4.jpeg) ![alt text](images/i5.jpeg) ![alt text](images/i6.jpeg) ![alt text](images/i7.jpeg) ![alt text](images/i8.jpeg)

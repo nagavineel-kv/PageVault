@@ -32,4 +32,4 @@ Whether you're reading at home or on the go, PAGEVault offers a platform to conn
 
 ---
 
-![alt text](image.png)
+![alt text](image-2.png)

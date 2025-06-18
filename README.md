@@ -32,4 +32,21 @@ Whether you're reading at home or on the go, PAGEVault offers a platform to conn
 
 ---
 
-![alt text](images/i1.jpeg) ![alt text](images/i2.jpeg) ![alt text](images/i3.jpeg) ![alt text](images/i4.jpeg) ![alt text](images/i5.jpeg) ![alt text](images/i6.jpeg) ![alt text](images/i7.jpeg) ![alt text](images/i8.jpeg)
+<h3>Screenshots</h3>
+
+<table>
+  <tr>
+    <td><img src="images/i1.jpeg" width="200"/></td>
+    <td><img src="images/i2.jpeg" width="200"/></td>
+    <td><img src="images/i3.jpeg" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="images/i4.jpeg" width="200"/></td>
+    <td><img src="images/i5.jpeg" width="200"/></td>
+    <td><img src="images/i6.jpeg" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="images/i7.jpeg" width="200"/></td>
+    <td><img src="images/i8.jpeg" width="200"/></td>
+  </tr>
+</table>

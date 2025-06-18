@@ -27,7 +27,7 @@ export default function Signup() {
         <View style={styles.card}>
           {/** Header */}
           <View style={styles.header}>
-            <Text style={styles.title}>PAGE Vault🔏</Text>
+            <Text style={styles.title}>PAGEVault🔏</Text>
             <Text style={styles.subtitle}>Share Your Favourite Reads📚</Text>
           </View>
           <View style={styles.formContainer}>

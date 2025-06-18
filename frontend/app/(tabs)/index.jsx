@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, RefreshControl } from 'react-native';
 import { Image } from 'expo-image';
 import { useAuthStore } from '../../store/authStore';
 import React, { useEffect, useState } from 'react';
@@ -8,6 +8,9 @@ import { API_URL } from '../../constants/api';
 import { Ionicons } from "@expo/vector-icons";
 import COLORS from '../../constants/colors';
 import { formatPublishDate } from '../../lib/utils';
+import Loader from '../../components/Loader';
+
+export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default function index() {
   const { token } = useAuthStore();
@@ -36,6 +39,7 @@ export default function index() {
       console.log("Error fetching books", error);
     } finally {
       if(refresh){
+        await sleep(800);
         setRefreshing(false)
       }else{
         setLoading(false);
@@ -45,7 +49,14 @@ export default function index() {
   useEffect(()=>{
     fetchBooks();
   },[])
-  const handleLoadMore = async () =>{}
+  const handleLoadMore = async () =>{
+    if(hasMore && !loading && !refreshing){
+      //setLoading(true);
+      await sleep(1000);
+      await fetchBooks(page + 1);
+    }
+
+  }
   const renderItem = ({item}) => (
     <View style={styles.bookCard}>
       <View style={styles.bookHeader}>
@@ -81,6 +92,9 @@ export default function index() {
     }
     return <View style={{ flexDirection: 'row' }}>{stars}</View>;
   }
+  if(loading) return (
+    <Loader size='large'/>
+  )
   return (
     <View style={styles.container}>
       <FlatList 
@@ -89,11 +103,26 @@ export default function index() {
         keyExtractor={(item) => item._id} 
         contentContainerStyle={styles.listContainer} 
         showsVerticalScrollIndicator={false} 
+        refreshControl={
+          <RefreshControl 
+            refreshing={refreshing}
+            onRefresh={() => fetchBooks(1, true)}
+            colors={[COLORS.primary]}
+            tintColor={COLORS.primary}
+          />
+        }
+        onEndReached={handleLoadMore}
+        onEndReachedThreshold={0.1}
         ListHeaderComponent={
           <View style={styles.header}>
-            <Text style={styles.headerTitle}>PAGE Vault🔏</Text>
+            <Text style={styles.headerTitle}>PAGEVault🔏</Text>
             <Text style={styles.headerSubtitle}>Discover great reads from community📚</Text>
           </View>
+        }
+        ListFooterComponent={
+          hasMore && books.length > 0 ? (
+            <ActivityIndicator style={styles.footerLoader} size='small' color={COLORS.primary}/>
+          ) : null
         }
          ListEmptyComponent={
           <View style={styles.emptyContainer}>
